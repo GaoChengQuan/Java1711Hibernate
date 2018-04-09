@@ -11,6 +11,16 @@ public class Student implements Serializable {
 	private String gender;
 	private Date birthday;
 
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Student(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	public Integer getId() {
 		return id;
 	}
