@@ -1,4 +1,4 @@
-package com.situ.hibernate.entity;
+package com.situ.hibernate.one2many;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -9,6 +9,7 @@ public class Student implements Serializable {
 	private Integer age;
 	private String gender;
 	private Date birthday;
+	private Banji banji;
 
 	public Student() {
 		super();
@@ -22,6 +23,14 @@ public class Student implements Serializable {
 
 	public Integer getId() {
 		return id;
+	}
+
+	public Banji getBanji() {
+		return banji;
+	}
+
+	public void setBanji(Banji banji) {
+		this.banji = banji;
 	}
 
 	public void setId(Integer id) {
