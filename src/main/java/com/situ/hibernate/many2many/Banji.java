@@ -1,4 +1,4 @@
-package com.situ.hibernate.one2many;
+package com.situ.hibernate.many2many;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -10,9 +10,18 @@ public class Banji implements Serializable {
 	private String name;
 	// 使用set集合，表达一对多关系
 	private Set<Student> students = new HashSet<>();
+	private Set<Course> courses = new HashSet<>();
 
 	public Integer getId() {
 		return id;
+	}
+
+	public Set<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(Set<Course> courses) {
+		this.courses = courses;
 	}
 
 	public void setId(Integer id) {

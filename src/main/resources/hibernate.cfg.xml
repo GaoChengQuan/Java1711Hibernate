@@ -29,8 +29,11 @@
 
 		<!-- 3、加载所有的映射 -->
 		<!-- <mapping resource="com/situ/hibernate/entity/Student.hbm.xml" /> -->
-		<mapping resource="com/situ/hibernate/one2many/Student.hbm.xml" />
-		<mapping resource="com/situ/hibernate/one2many/Banji.hbm.xml" />
+		<!-- <mapping resource="com/situ/hibernate/one2many/Student.hbm.xml" />
+		<mapping resource="com/situ/hibernate/one2many/Banji.hbm.xml" /> -->
+		<mapping resource="com/situ/hibernate/many2many/Banji.hbm.xml" />
+		<mapping resource="com/situ/hibernate/many2many/Course.hbm.xml" />
+		<mapping resource="com/situ/hibernate/many2many/Student.hbm.xml" />
 
 	</session-factory>
 </hibernate-configuration>

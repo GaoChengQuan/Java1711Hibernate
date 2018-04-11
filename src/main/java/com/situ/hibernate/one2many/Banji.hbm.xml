@@ -9,7 +9,19 @@
 		</id>
 		<property name="name" column="name"/>
 		<!-- 一对多 -->
-		<set name="students">
+		<!-- 级联操作：cascade
+			save-update:级联保存更新 
+			delete:级联删除
+			all:save-update + delete 
+			级联操作：并没有提高效率只是简化了操作，少写了代码。
+			delete应该谨慎使用
+			-->
+		<!-- inverse:性能优化，提高关系维护的性能
+			true:班级表不维护这个外键关系
+			false:(默认值)班级表维护这个外键关系
+			inverse:控制反转（我不控制了，交给别人来维护控制）
+		 -->
+		<set name="students" inverse="true">
 			<key column="banji_id"/>
 			<one-to-many class="Student"/>
 		</set>

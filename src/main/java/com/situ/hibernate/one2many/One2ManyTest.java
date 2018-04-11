@@ -14,11 +14,11 @@ public class One2ManyTest {
 		Transaction tx = session.beginTransaction();
 
 		Banji banji = new Banji();
-		banji.setName("java1707");
+		banji.setName("java1709");
 		Student student1 = new Student();
-		student1.setName("张三1");
+		student1.setName("张三111");
 		Student student2 = new Student();
-		student2.setName("张三2");
+		student2.setName("张三222");
 		// 表达关系
 		// 表达一对多关系：一个班级有多个学生
 		banji.getStudents().add(student1);
@@ -44,12 +44,45 @@ public class One2ManyTest {
 		Banji banji = session.get(Banji.class, 2);
 		Student student = new Student();
 		student.setName("张三3");
-		//把学生添加到班级里面
+		// 把学生添加到班级里面
 		banji.getStudents().add(student);
 		student.setBanji(banji);
 
 		session.save(banji);
 		session.save(student);
+
+		tx.commit();
+		session.close();
+	}
+
+	// 删除班级中某个学生
+	@Test
+	public void test3() {
+		Session session = HibernateUtil.openSession();
+		Transaction tx = session.beginTransaction();
+
+		Banji banji = session.get(Banji.class, 2);
+		Student student = session.get(Student.class, 8);
+		// 解除关系
+		banji.getStudents().remove(student);
+		student.setBanji(null);
+		// session.save(banji);
+		// session.save(student);
+
+		tx.commit();
+		session.close();
+	}
+
+	// 级联删除
+	@Test
+	public void test4() {
+		Session session = HibernateUtil.openSession();
+		Transaction tx = session.beginTransaction();
+
+		Banji banji = session.get(Banji.class, 4);
+		session.delete(banji);
+		// session.save(banji);
+		// session.save(student);
 
 		tx.commit();
 		session.close();
